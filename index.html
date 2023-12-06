@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Google SignIn</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <title>Google Auth Demo</title>
+  <meta name="google-signin-client_id" content="your-client-id-goes-here">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-  <h2>Login to Google from this page!</h2>
-  <br><br>
-  <div class="well">
-    <div class="g-signin2" data-onsuccess="onSignIn" data-width="240" data-height="50" data-longtitle="true"></div>
-    <br><br>
-    <a href="#" onclick="signOut();">Sign out of Google</a>
-  </div>
-  
-  <!-- Container to display user information -->
-  <div class="user-info-container">
-    <ul id="userInfo"></ul>
-  </div>
-
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="./script.js"></script>
+  <h1>Welcome to the Demo</h1>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <button onclick="signOut()">Sign out</button>
+  <script>
+    function onSignIn(googleUser) {
+      console.log(googleUser.getBasicProfile())
+    }
+    function signOut() {
+      gapi.auth2.getAuthInstance().signOut().then(function() {
+        console.log('user signed out')
+      })
+    }
+  </script>
 </body>
 </html>
