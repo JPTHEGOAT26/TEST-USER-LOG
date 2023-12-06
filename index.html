@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Google Sign In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-signin-client_id" content="621564911356-jr2mo7msre6a4e2ph8et3bp66t7t1n18.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<p>
+  <a href="https://developers.google.com/identity/sign-in/web/">Check out the tutorial on google.</a>
+</p>  
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<pre id="info"></pre>
+<a href="#" onclick="signOut();">Sign out</a>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
