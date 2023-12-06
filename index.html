@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Example CSS styles for the displayed user information */
+    #userProfile {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div id="userProfile"></div>
+
+  <!-- Your other HTML content -->
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <div id="g_id_onload"
+    data-client_id="661524162176-opto5dukjfuu87sco5r2a4ipn2fis8na.apps.googleusercontent.com"
+    data-login_uri="https://yourdomain.com/google-auth">
+  </div>
+
+  <script>
+    function onGoogleSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      var userName = profile.getName();
+      var userEmail = profile.getEmail();
+      
+      var userProfileInfo = 'Welcome, ' + userName + '!<br>';
+      userProfileInfo += 'Email: ' + userEmail;
+      
+      // Display the user's information on the page
+      document.getElementById('userProfile').innerHTML = userProfileInfo;
+    }
+  </script>
+</body>
+</html>
