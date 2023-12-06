@@ -18,3 +18,13 @@ h2 {
   text-align : center;
   font-family : Station Medium;
 }
+
+/* Styles for user information */
+#userInfo {
+  list-style: none;
+  padding: 0;
+}
+
+#userInfo li {
+  margin-bottom: 8px;
+}
