@@ -1,57 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Google Sign-In Example</title>
-  <style>
-    /* Example CSS styles for the displayed user information */
-    #userProfile {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      margin: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="userProfile"></div>
-
-  <script src="https://accounts.google.com/gsi/client" async></script>
-  <div id="g_id_onload"
-    data-client_id="661524162176-opto5dukjfuu87sco5r2a4ipn2fis8na.apps.googleusercontent.com"
-    data-login_uri="https://yourdomain.com/google-auth"
-    data-auto_prompt="true">
+  <div class="container">
+    <h1>Welcome to the Website!</h1>
+    <div id="userBox" style="display: none;">
+      <p>Welcome, <span id="userName"></span>!</p>
+    </div>
+    <div id="googleSignInBtn"></div>
   </div>
 
-  <script>
-    // Function to handle displaying user information
-    function displayUserInfo() {
-      // Get the current Google User
-      var googleAuth = google.accounts.id.getAuthResult();
-      if (googleAuth) {
-        var profile = googleAuth.getBasicProfile();
-        var userName = profile.getName();
-        var userEmail = profile.getEmail();
-        
-        var userProfileInfo = 'Welcome, ' + userName + '!<br>';
-        userProfileInfo += 'Email: ' + userEmail;
-        
-        // Display the user's information on the page
-        document.getElementById('userProfile').innerHTML = userProfileInfo;
-      }
-    }
-
-    // Callback function for successful sign-in
-    function onGoogleSignIn(googleUser) {
-      displayUserInfo(); // Call the function to display user information
-    }
-
-    // Check if the user is already signed in (page load)
-    window.onload = function () {
-      displayUserInfo(); // Call the function to display user information
-    };
-  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
